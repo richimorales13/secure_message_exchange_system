@@ -68,7 +68,6 @@ if __name__ == '__main__':
         encrypted_symkey = publickey.encrypt(symmetric_key,get_OAEP_padding())
         print('Encrypting IV with public key.')
         encrypted_iv = publickey.encrypt(iv,get_OAEP_padding())
-        b64_encrypted_symkey = b64encode(encrypted_symkey)
         bytes_to_write = bytearray(b'-----BEGIN ID-----\n' + userid.encode()+b'\n'+
                                    b'-----END ID-----\n'+
                                    b'-----BEGIN MESSAGE-----\n'+
