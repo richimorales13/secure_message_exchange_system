@@ -5,5 +5,4 @@
 3) Run receiving_app.py to decrypt a message from a file
 4) Run sending_app.py to encrypt a file for sending or encrypt a provided message. Output is saved to messagetosend.txt.
 
-Note:
-userid = firstname in lowercase
+Note: userid = firstname in lowercase. This is to match a certificate found in the keystore folder.
