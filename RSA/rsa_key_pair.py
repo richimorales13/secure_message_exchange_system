@@ -25,14 +25,14 @@ def create_public_private_rsa_key_pair(password):
 
 def load_private_key():
     pw = input('Enter password to load private key: ')
-    with open(path.join(path.abspath('.'),'keystore/kr.pem'),'rb') as r:
+    with open(path.join(path.abspath('.'),'keystor','kr.pem'),'rb') as r:
         private_key = serialization.load_pem_private_key(data=r.read(),
             password=pw.encode(),backend=default_backend()
         )
         return private_key
 
 def load_public_key():
-    with open(path.join(path.abspath('.'),'keystore/ku.pem'),'rb') as r2:
+    with open(path.join(path.abspath('.'),'keystore','ku.pem'),'rb') as r2:
         public_key = serialization.load_pem_public_key(
             data = r2.read(),
             backend=default_backend()
