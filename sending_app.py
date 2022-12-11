@@ -31,7 +31,7 @@ def read_file(filename):
                
 
 if __name__ == '__main__':
-    userid = input('Enter the userid to whom you want to send to: ')
+    userid = input('Enter your userid to whom you want to send to: ')
     filepath = search_certificate(userid)
     message=''
     if filepath:
@@ -47,6 +47,7 @@ if __name__ == '__main__':
                   break
              else:
                  print('Not a valid option...')     
+        myuser_id = input('Enter your user id:')
         symkey_pw = input('Enter password for symmetric key: ')
         print("Creating symmetric key.")
         symmetric_key = create_symmetric_key(symkey_pw.encode())
@@ -68,7 +69,7 @@ if __name__ == '__main__':
         encrypted_symkey = publickey.encrypt(symmetric_key,get_OAEP_padding())
         print('Encrypting IV with public key.')
         encrypted_iv = publickey.encrypt(iv,get_OAEP_padding())
-        bytes_to_write = bytearray(b'-----BEGIN ID-----\n' + userid.encode()+b'\n'+
+        bytes_to_write = bytearray(b'-----BEGIN ID-----\n' + myuser_id.encode()+b'\n'+
                                    b'-----END ID-----\n'+
                                    b'-----BEGIN MESSAGE-----\n'+
                                    b64_message +
